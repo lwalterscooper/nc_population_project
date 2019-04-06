@@ -1,0 +1,220 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0006_ds23_1880_county'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1880
+Geographic level: County (by State)
+Dataset:          1880 Census: Population, Agriculture & Other Data [US, States & Counties]
+   NHGIS code:    1880_cPAX
+   NHGIS ID:      ds23
+ 
+Tables:
+ 
+1. Total Population
+   Universe:    Persons
+   Source code: NT1
+   NHGIS code:  AOT
+ 
+2. Race
+   Universe:    Persons
+   Source code: NT4
+   NHGIS code:  APP
+ 
+3. Place of Birth
+   Universe:    Persons
+   Source code: NT51
+   NHGIS code:  AP3
+ 
+4. Nativity
+   Universe:    Persons
+   Source code: NT52
+   NHGIS code:  AP4
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    COUNTY:      County Name
+    COUNTYA:     County Code
+    AREANAME:    Area name
+ 
+Table 1:     Total Population
+Universe:    Persons
+Source code: NT1
+NHGIS code:  AOT
+    AOT001:      Total
+ 
+Table 2:     Race
+Universe:    Persons
+Source code: NT4
+NHGIS code:  APP
+    APP001:      White
+    APP002:      Colored
+    APP003:      Chinese
+    APP004:      Indian
+ 
+Table 3:     Place of Birth
+Universe:    Persons
+Source code: NT51
+NHGIS code:  AP3
+    AP3001:      Native-born: Alabama
+    AP3002:      Native-born: Arkansas
+    AP3003:      Native-born: California
+    AP3004:      Native-born: Colorado
+    AP3005:      Native-born: Connecticut
+    AP3006:      Native-born: Delaware
+    AP3007:      Native-born: Florida
+    AP3008:      Native-born: Georgia
+    AP3009:      Native-born: Illinois
+    AP3010:      Native-born: Indiana
+    AP3011:      Native-born: Iowa
+    AP3012:      Native-born: Kansas
+    AP3013:      Native-born: Kentucky
+    AP3014:      Native-born: Louisiana
+    AP3015:      Native-born: Maine
+    AP3016:      Native-born: Maryland
+    AP3017:      Native-born: Massachusetts
+    AP3018:      Native-born: Michigan
+    AP3019:      Native-born: Mississippi
+    AP3020:      Native-born: Minnesota
+    AP3021:      Native-born: Missouri
+    AP3022:      Native-born: Nebraska
+    AP3023:      Native-born: Nevada
+    AP3024:      Native-born: New Hampshire
+    AP3025:      Native-born: New Jersey
+    AP3026:      Native-born: New York
+    AP3027:      Native-born: North Carolina
+    AP3028:      Native-born: Ohio
+    AP3029:      Native-born: Oregon
+    AP3030:      Native-born: Pennsylvania
+    AP3031:      Native-born: Rhode Island
+    AP3032:      Native-born: South Carolina
+    AP3033:      Native-born: Tennessee
+    AP3034:      Native-born: Texas
+    AP3035:      Native-born: Vermont
+    AP3036:      Native-born: Virginia
+    AP3037:      Native-born: West Virginia
+    AP3038:      Native-born: Wisconsin
+    AP3039:      Native-born: Alaska
+    AP3040:      Native-born: Arizona
+    AP3041:      Native-born: Dakota Territory
+    AP3042:      Native-born: District of Columbia
+    AP3043:      Native-born: Idaho
+    AP3044:      Native-born: Indian Territory
+    AP3045:      Native-born: Montana
+    AP3046:      Native-born: New Mexico
+    AP3047:      Native-born: Utah
+    AP3048:      Native-born: Washington
+    AP3049:      Native-born: Wyoming
+    AP3050:      Native-born: Born at Sea
+    AP3051:      Native-born: Born in state of residence
+    AP3052:      Foreign-born: Africa
+    AP3053:      Foreign-born: The Atlantic Islands
+    AP3054:      Foreign-born: Austria
+    AP3055:      Foreign-born: Bohemia
+    AP3056:      Foreign-born: British America
+    AP3057:      Foreign-born: Central America
+    AP3058:      Foreign-born: China
+    AP3059:      Foreign-born: Cuba
+    AP3060:      Foreign-born: Denmark
+    AP3061:      Foreign-born: England and Wales
+    AP3062:      Foreign-born: France
+    AP3063:      Foreign-born: German Empire
+    AP3064:      Foreign-born: Great Britain
+    AP3065:      Foreign-born: Holland
+    AP3066:      Foreign-born: Ireland
+    AP3067:      Foreign-born: Italy
+    AP3068:      Foreign-born: Mexico
+    AP3069:      Foreign-born: Poland
+    AP3070:      Foreign-born: Portugal
+    AP3071:      Foreign-born: Russia
+    AP3072:      Foreign-born: Scotland
+    AP3073:      Foreign-born: Spain
+    AP3074:      Foreign-born: Sweden and Norway
+    AP3075:      Foreign-born: Switzerland
+    AP3076:      Foreign-born: West Indies
+ 
+Table 4:     Nativity
+Universe:    Persons
+Source code: NT52
+NHGIS code:  AP4
+    AP4001:      Native-born
+    AP4002:      Foreign-born
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* REDISTRIBUTION: You will not redistribute the data without permission.
+
+  You may publish a subset of the data to meet journal requirements for accessing 
+  data related to a particular publication. Contact us for permission for any other 
+  redistribution; we will consider requests for free and commercial redistribution.
+
+* CITATION: You will cite NHGIS appropriately.
+
+    * Publications and research reports employing NHGIS data (either tabular or GIS) 
+      should include the following citation:
+
+        Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+        IPUMS National Historical Geographic Information System: Version 13.0 
+        [Database]. Minneapolis: University of Minnesota. 2018. 
+        http://doi.org/10.18128/D050.V13.0
+
+    * Publications and research reports employing school attendance areas data 
+      (either tabular or GIS) must cite it appropriately. The citation should 
+      include the following:
+
+        The College of William and Mary and the Minnesota Population Center.
+        School Attendance Boundary Information System (SABINS): Version 1.0.
+        Minneapolis, MN: University of Minnesota 2011.
+
+    * For policy briefs, online resources, or articles in the popular press, we 
+      recommend that you cite the use of NHGIS data as follows:
+
+        IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+    * If possible, citations involving school attendance areas should also include
+      the URL for the SABINS site:
+
+        http://www.sabinsdata.org/.
+
+These terms of use are a legally binding agreement. You can use the data only in 
+accordance with these terms, and any other use is a violation of the agreement. 
+Violations may result in revocation of the agreement and prohibition from using other 
+IPUMS data. If IPUMS or our partners are harmed from your violation, you are 
+responsible for all damages, including reasonable attorney's fees and expenses.
+        
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+
+Send electronic material to: nhgis@umn.edu
+
+Printed matter should be sent to:
+
+    IPUMS NHGIS
+    Institute for Social Research and Data Innovation
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
