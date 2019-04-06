@@ -1,0 +1,255 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0006_ds24_1880_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1880
+Geographic level: State
+Dataset:          1880 Census: Place of Birth, School, Manufacturing & Other Data [US & States]
+   NHGIS code:    1880_sPbSMX
+   NHGIS ID:      ds24
+ 
+Tables:
+ 
+1. Native-Born Population by Race by Place of Birth
+   Universe:    Native Persons
+   Source code: NT1
+   NHGIS code:  AQA
+ 
+2. Foreign-Born Population by Place of Birth
+   Universe:    Foreign-Born Persons
+   Source code: NT2
+   NHGIS code:  AQL
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    AREANAME:    Area name
+ 
+Table 1:     Native-Born Population by Race by Place of Birth
+Universe:    Native Persons
+Source code: NT1
+NHGIS code:  AQA
+    AQA001:      White >> Alabama
+    AQA002:      White >> Arkansas
+    AQA003:      White >> California
+    AQA004:      White >> Colorado
+    AQA005:      White >> Connecticut
+    AQA006:      White >> Delaware
+    AQA007:      White >> Florida
+    AQA008:      White >> Georgia
+    AQA009:      White >> Illinois
+    AQA010:      White >> Indiana
+    AQA011:      White >> Iowa
+    AQA012:      White >> Kansas
+    AQA013:      White >> Kentucky
+    AQA014:      White >> Louisiana
+    AQA015:      White >> Maine
+    AQA016:      White >> Maryland
+    AQA017:      White >> Massachusetts
+    AQA018:      White >> Michigan
+    AQA019:      White >> Minnesota
+    AQA020:      White >> Mississippi
+    AQA021:      White >> Missouri
+    AQA022:      White >> Nebraska
+    AQA023:      White >> Nevada
+    AQA024:      White >> New Hampshire
+    AQA025:      White >> New Jersey
+    AQA026:      White >> New York
+    AQA027:      White >> North Carolina
+    AQA028:      White >> Ohio
+    AQA029:      White >> Oregon
+    AQA030:      White >> Pennsylvania
+    AQA031:      White >> Rhode Island
+    AQA032:      White >> South Carolina
+    AQA033:      White >> Tennessee
+    AQA034:      White >> Texas
+    AQA035:      White >> Vermont
+    AQA036:      White >> Virginia
+    AQA037:      White >> West Virginia
+    AQA038:      White >> Wisconsin
+    AQA039:      White >> Alaska
+    AQA040:      White >> Arizona
+    AQA041:      White >> Dakota
+    AQA042:      White >> District of Columbia
+    AQA043:      White >> Idaho
+    AQA044:      White >> Indian Territory
+    AQA045:      White >> Montana
+    AQA046:      White >> New Mexico
+    AQA047:      White >> Utah
+    AQA048:      White >> Washington
+    AQA049:      White >> Wyoming
+    AQA050:      White >> Born at sea (under US flag)
+    AQA051:      Colored >> Alabama
+    AQA052:      Colored >> Arkansas
+    AQA053:      Colored >> California
+    AQA054:      Colored >> Colorado
+    AQA055:      Colored >> Connecticut
+    AQA056:      Colored >> Delaware
+    AQA057:      Colored >> Florida
+    AQA058:      Colored >> Georgia
+    AQA059:      Colored >> Illinois
+    AQA060:      Colored >> Indiana
+    AQA061:      Colored >> Iowa
+    AQA062:      Colored >> Kansas
+    AQA063:      Colored >> Kentucky
+    AQA064:      Colored >> Louisiana
+    AQA065:      Colored >> Maine
+    AQA066:      Colored >> Maryland
+    AQA067:      Colored >> Massachusetts
+    AQA068:      Colored >> Michigan
+    AQA069:      Colored >> Minnesota
+    AQA070:      Colored >> Mississippi
+    AQA071:      Colored >> Missouri
+    AQA072:      Colored >> Nebraska
+    AQA073:      Colored >> Nevada
+    AQA074:      Colored >> New Hampshire
+    AQA075:      Colored >> New Jersey
+    AQA076:      Colored >> New York
+    AQA077:      Colored >> North Carolina
+    AQA078:      Colored >> Ohio
+    AQA079:      Colored >> Oregon
+    AQA080:      Colored >> Pennsylvania
+    AQA081:      Colored >> Rhode Island
+    AQA082:      Colored >> South Carolina
+    AQA083:      Colored >> Tennessee
+    AQA084:      Colored >> Texas
+    AQA085:      Colored >> Vermont
+    AQA086:      Colored >> Virginia
+    AQA087:      Colored >> West Virginia
+    AQA088:      Colored >> Wisconsin
+    AQA089:      Colored >> Alaska
+    AQA090:      Colored >> Arizona
+    AQA091:      Colored >> Dakota
+    AQA092:      Colored >> District of Columbia
+    AQA093:      Colored >> Idaho
+    AQA094:      Colored >> Indian Territory
+    AQA095:      Colored >> Montana
+    AQA096:      Colored >> New Mexico
+    AQA097:      Colored >> Utah
+    AQA098:      Colored >> Washington
+    AQA099:      Colored >> Wyoming
+    AQA100:      Colored >> Born at sea (under US flag)
+ 
+Table 2:     Foreign-Born Population by Place of Birth
+Universe:    Foreign-Born Persons
+Source code: NT2
+NHGIS code:  AQL
+    AQL001:      Africa (not specified)
+    AQL002:      Asia (not specified)
+    AQL003:      Atlantic Islands
+    AQL004:      Australia
+    AQL005:      Austria
+    AQL006:      Belgium
+    AQL007:      Bohemia
+    AQL008:      British America
+    AQL009:      Central America
+    AQL010:      China
+    AQL011:      Cuba
+    AQL012:      Denmark
+    AQL013:      Europe (not specified)
+    AQL014:      France
+    AQL015:      Germany
+    AQL016:      Gibraltar
+    AQL017:      Great Britain
+    AQL018:      Greece
+    AQL019:      Greenland
+    AQL020:      Holland
+    AQL021:      Hungary
+    AQL022:      India
+    AQL023:      Italy
+    AQL024:      Japan
+    AQL025:      Luxembourg
+    AQL026:      Malta
+    AQL027:      Mexico
+    AQL028:      Norway
+    AQL029:      Pacific Islands
+    AQL030:      Poland
+    AQL031:      Portugal
+    AQL032:      Russia
+    AQL033:      Sandwich Islands
+    AQL034:      South America
+    AQL035:      Spain
+    AQL036:      Sweden
+    AQL037:      Switzerland
+    AQL038:      Turkey
+    AQL039:      West Indies
+    AQL040:      Born at sea (under foreign flag)
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* REDISTRIBUTION: You will not redistribute the data without permission.
+
+  You may publish a subset of the data to meet journal requirements for accessing 
+  data related to a particular publication. Contact us for permission for any other 
+  redistribution; we will consider requests for free and commercial redistribution.
+
+* CITATION: You will cite NHGIS appropriately.
+
+    * Publications and research reports employing NHGIS data (either tabular or GIS) 
+      should include the following citation:
+
+        Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+        IPUMS National Historical Geographic Information System: Version 13.0 
+        [Database]. Minneapolis: University of Minnesota. 2018. 
+        http://doi.org/10.18128/D050.V13.0
+
+    * Publications and research reports employing school attendance areas data 
+      (either tabular or GIS) must cite it appropriately. The citation should 
+      include the following:
+
+        The College of William and Mary and the Minnesota Population Center.
+        School Attendance Boundary Information System (SABINS): Version 1.0.
+        Minneapolis, MN: University of Minnesota 2011.
+
+    * For policy briefs, online resources, or articles in the popular press, we 
+      recommend that you cite the use of NHGIS data as follows:
+
+        IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+    * If possible, citations involving school attendance areas should also include
+      the URL for the SABINS site:
+
+        http://www.sabinsdata.org/.
+
+These terms of use are a legally binding agreement. You can use the data only in 
+accordance with these terms, and any other use is a violation of the agreement. 
+Violations may result in revocation of the agreement and prohibition from using other 
+IPUMS data. If IPUMS or our partners are harmed from your violation, you are 
+responsible for all damages, including reasonable attorney's fees and expenses.
+        
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+
+Send electronic material to: nhgis@umn.edu
+
+Printed matter should be sent to:
+
+    IPUMS NHGIS
+    Institute for Social Research and Data Innovation
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455

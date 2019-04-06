@@ -1,0 +1,121 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0006_ds25_1880_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1880
+Geographic level: State
+Dataset:          1880 Census: Population, Housing & Other Data [US & States]
+   NHGIS code:    1880_sPHX
+   NHGIS ID:      ds25
+ 
+Tables:
+ 
+1. Race by Nativity by Sex
+   Universe:    Persons
+   Source code: NT1
+   NHGIS code:  AR0
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    AREANAME:    Area name
+ 
+Table 1:     Race by Nativity by Sex
+Universe:    Persons
+Source code: NT1
+NHGIS code:  AR0
+    AR0001:      White >> Native-born >> Male
+    AR0002:      White >> Native-born >> Female
+    AR0003:      White >> Foreign-born >> Male
+    AR0004:      White >> Foreign-born >> Female
+    AR0005:      Colored >> Native-born >> Male
+    AR0006:      Colored >> Native-born >> Female
+    AR0007:      Colored >> Foreign-born >> Male
+    AR0008:      Colored >> Foreign-born >> Female
+    AR0009:      Chinese and Japanese >> Native-born >> Male
+    AR0010:      Chinese and Japanese >> Native-born >> Female
+    AR0011:      Chinese and Japanese >> Foreign-born >> Male
+    AR0012:      Chinese and Japanese >> Foreign-born >> Female
+    AR0013:      Indian >> Native-born >> Male
+    AR0014:      Indian >> Native-born >> Female
+    AR0015:      Indian >> Foreign-born >> Male
+    AR0016:      Indian >> Foreign-born >> Female
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* REDISTRIBUTION: You will not redistribute the data without permission.
+
+  You may publish a subset of the data to meet journal requirements for accessing 
+  data related to a particular publication. Contact us for permission for any other 
+  redistribution; we will consider requests for free and commercial redistribution.
+
+* CITATION: You will cite NHGIS appropriately.
+
+    * Publications and research reports employing NHGIS data (either tabular or GIS) 
+      should include the following citation:
+
+        Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+        IPUMS National Historical Geographic Information System: Version 13.0 
+        [Database]. Minneapolis: University of Minnesota. 2018. 
+        http://doi.org/10.18128/D050.V13.0
+
+    * Publications and research reports employing school attendance areas data 
+      (either tabular or GIS) must cite it appropriately. The citation should 
+      include the following:
+
+        The College of William and Mary and the Minnesota Population Center.
+        School Attendance Boundary Information System (SABINS): Version 1.0.
+        Minneapolis, MN: University of Minnesota 2011.
+
+    * For policy briefs, online resources, or articles in the popular press, we 
+      recommend that you cite the use of NHGIS data as follows:
+
+        IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+    * If possible, citations involving school attendance areas should also include
+      the URL for the SABINS site:
+
+        http://www.sabinsdata.org/.
+
+These terms of use are a legally binding agreement. You can use the data only in 
+accordance with these terms, and any other use is a violation of the agreement. 
+Violations may result in revocation of the agreement and prohibition from using other 
+IPUMS data. If IPUMS or our partners are harmed from your violation, you are 
+responsible for all damages, including reasonable attorney's fees and expenses.
+        
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+
+Send electronic material to: nhgis@umn.edu
+
+Printed matter should be sent to:
+
+    IPUMS NHGIS
+    Institute for Social Research and Data Innovation
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
