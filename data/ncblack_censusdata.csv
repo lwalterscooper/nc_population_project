@@ -1,4 +1,4 @@
-﻿county,census_yr,free,enslaved
+county,census_yr,free,enslaved
 Alamance,1860,422,3445
 Alexander,1860,24,611
 Alleghany,1860,33,266
@@ -57,7 +57,7 @@ Montgomery ,1860,46,1823
 Moore,1860,184,2518
 Nash,1860,687,4080
 New Hanover,1860,642,7103
-Northampton,1860,659,6904
+Northanpton,1860,659,6904
 Onslow,1860,162,3499
 Orange,1860,528,5108
 Pasquontank,1860,1507,2983
@@ -146,7 +146,7 @@ Montgomery ,1870,2128,0
 Moore,1870,3019,0
 Nash,1870,4721,0
 New Hanover,1870,16199,0
-Northampton,1870,8510,0
+Northanpton,1870,8510,0
 Onslow,1870,2396,0
 Orange,1870,6420,0
 Pasquontank,1870,3951,0
@@ -237,7 +237,7 @@ Montgomery ,1880,2517,0
 Moore,1880,5332,0
 Nash,1880,8314,0
 New Hanover,1880,13217,0
-Northampton,1880,12046,0
+Northanpton,1880,12046,0
 Onslow,1880,3229,0
 Orange,1880,9143,0
 Pamlico,1880,2116,0
