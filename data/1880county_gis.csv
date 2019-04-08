@@ -1,4 +1,4 @@
-GISJOIN,YEAR,STATE,STATEA,COUNTY,COUNTYA,AREANAME
+gisjoin,year,state,statea,county,countya,areaname
 G3700010,1880,North Carolina,370,Alamance,10,Alamance
 G3700011,1880,North Carolina,370,Alexander,30,Alexander
 G3700012,1880,North Carolina,370,Alleghany,50,Alleghany
