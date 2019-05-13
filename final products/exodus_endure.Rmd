@@ -1,0 +1,169 @@
+---
+title: "Exodus/Endure: The African American Population of North Carolina after Reconstruction "
+description: |
+  Clio 2 Research Project
+author:
+  - name: LaQuanda Walters Cooper 
+    url: https://lwalterscooper.org/clio2
+    affiliation: George Mason University
+    
+date: "May 13 2019"
+output: distill::distill_article
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(layout="l-body-outset", fig.width=6, fig.height=4, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+In an April 1879 letter to Osborne Hunter, Jr. of the North Carolina Industrial Association (NCIA), L.L. Polk, Commissioner of the North Carolina Department of Agriculture advised that the newly incorporated organization should “elevate the aims and aspirations of your people, by inculcating ideas of economy, industry, and honesty, and unlike your Brethren of the more Southern states, you will not be deluded into the great error of leaving the bountiful, fruitful land of your birth for one abounding only in disappointment.”^[“Encouraging Words from Commissioner Polk,” The Journal of Industry, April 1879, 1. Charles N. Hunter Papers, David M. Rubenstein Rare Book & Manuscript Library, Duke University. Hereafter Hunter Papers. The Journal of Industry was the organ of the North Carolina Industrial Association, established by twenty-two African American men in March 1879, with the purpose of  encouraging and promoting “the development of the industrial and educational resources of the colored people of North Carolina, to gather statistics respecting their progress in the various pursuits and customs peculiar to civilized and enlightened nations…to hold annually…an exhibition of the products of their industry and education…” See “Laws and Resolutions of the State of North Carolina, Passed by the General Assembly at Its Session [1879]", 907-908.]  
+
+When the NCIA held its inaugural Negro State Fair in November 1879, Governor Thomas Jarvis repeatedly assured the mostly African American audience they would be treated as full citizens of the state of North Carolina: “You will find in North Carolina as genial a home, as promising a future as anywhere on God’s earth…Right here, where your forefathers were born, lived, died and sleep their last sleep, you will find the place to stay and work out your destiny.”^[Opening of the Fair,” The Journal of Industry, November 19, 1879, Hunter Papers.]  James O’Hara, a mixed-race Republican politician from Halifax County followed Governor Jarvis’s address.^[United States House of Representatives Office of the Historian, “O’HARA, James Edward,” n.d., http://history.house.gov/People/Listing/O/O-HARA,-James-Edward-(O000054)/. Clark, 187-8. In 1883, James O’Hara became the second African American man to represent North Carolina in U.S. House of Representatives.]  Just as Jarvis did, O’Hara opposed African American migration out of the state; he advised fellow African American citizens contemplating emigration to “come, look and enjoy the feast; give your wearied troubled soul rest, for us and our household North Carolina shall ever remain our permanent home.”^[“Speech of Hon. J. E. O’Hara,” The Journal of Industry, November 19, 1879; Hunter Papers.] 
+
+Just a month later, the United States Senate passed a resolution creating a committee composed of three Democrats (one each from Indiana, North Carolina, and Ohio) and two Republicans (one each from Minnesota and New Hampshire).^[Of the three Democrats on the committee, two are of particular importance to this study: Zebulon Vance of North Carolina and Daniel Voorhees of Indiana. Vance was a Unionist Congressman who became a Confederate after the Civil War began and led the 26th North Carolina Regiment. He was elected to his first term as governor in 1862 and served until May 1865, when he was arrested and jailed for his activities as a Confederate during the Civil War. In 1876, Vance was again elected as North Carolina’s governor in 1876 and served until 1878, when he was elected to the Senate. See William S. Powell, North Carolina Through Four Centuries. (Chapel Hill: University of North Carolina Press), 1989, 368-369, 405-406.; “VANCE, Zebulon Baird - Biographical Information,” n.d., http://bioguide.congress.gov/scripts/biodisplay.pl?index=V000021.  Voorhees chaired the committee; he was an anti-war Copperhead or Peace Democrat who advocated a peace agreement with the Confederacy. He also represented the region of southern Indiana that experienced increased African American migration. See Emma Lou Thornbrough, The Negro in Indiana Before 1900: The Study of a Minority, vol. XXXVII, Indiana Historical Collections (Indiana Historical Bureau, 1957), 215.]  Charged with the task of determining the causes of “large numbers of Negroes from the Southern states emigrating to Northern states,” the committee collected testimony from 153 witnesses from North Carolina, Georgia, Alabama, Mississippi, Louisiana, Texas, Missouri, Kansas, and Indiana, with the goal of “ascertaining, if possible, the real state of facts in regard to the condition of the Southern colored people, their opinions and feelings, and the feelings and opinions of their white neighbors.”^[“Report and Testimony of the Select Committee of the United States Senate to Investigate the Causes of the Removal of the Negroes from the Southern States to the Northern States” (Washington, DC: United States Senate, 1880), 3.]  
+
+While the testimony in this report provides important first-hand accounts of African American life in the South post-Reconstruction, the topic of African American migration—specifically migration from North Carolina—raises four important questions: Why were African Americans leaving North Carolina in the late 1870s?  When African Americans left North Carolina, where did they resettle? Why was African American migration a subject of public concern? Were African Americans leaving North Carolina in numbers proportional to the levels of concern articulated by politicians? 
+
+This essay attempts to answer these four questions by blending computational and noncomputational historical methods. Using data analysis and mapping in R, we can interrogate African American population shifts in North Carolina; using census data from 1870 and 1880, this essay will specifically examine how many African Americans living in the United States were born in North Carolina, where they choose to live, and observe these choices and shifts occurring over time. The narrative at the root of these population shifts is rooted in noncomputational historical methods, utilizing primary and secondary sources. 
+
+This essay is also an attempt to revive and update the historiography of African American migration from North Carolina. Most of this narrative is located in traces in older texts, usually within the context of the larger (and better known) narrative of African American migration from Mississippi, Louisiana, and Tennessee to Kansas, known as the Exodus.^[Nell Irvin Painter, Exodusters: Black Migration to Kansas after Reconstruction (Lawrence, KS: University Press of Kansas), 1986, 251-252. ]  While it was published in 1964, Frenise Logan’s The Negro in North Carolina, 1876-1915 is an exception, as it devotes an entire chapter to African American migration.
+
+```{r 1870map, results= "hide", fig.cap="African American settlement in North Carolina, 1870. <br> Using 1870 Census data, this static county map illustrates where African Americans in North Carolina lived in the years post-Emancipation."}
+library(tidyverse)
+library(USAboundaries)
+library (ggplot2)
+library(leaflet)
+library (sf)
+
+nctotalblkpop_1870 <- read_csv("data/nctotalblkpop_1870.csv")
+counties_nc_1870 <- us_counties("1870-12-31", resolution = "high", states = "NC")
+nc1870blkpop <- counties_nc_1870 %>% 
+  left_join(nctotalblkpop_1870, by = "name") 
+
+ggplot(nc1870blkpop) +
+  geom_sf(aes(fill = totalblkpop)) +
+  scale_fill_distiller("African American Population", palette = "YlGnBu", na.value = "white", direction = 1) +
+  labs(title = "1870: African Americans in North Carolina") +
+  theme(plot.title = element_text(size = 14, hjust = 0.7),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        panel.background = element_blank(),
+        panel.border = element_blank())
+
+```
+
+
+While full “redemption” or “home rule” of North Carolina was not fully secure until the re-election of Zebulon B. Vance as governor in 1876, Conservatives had worked to consolidate their power over local and state government after gaining control of the North Carolina General Assembly in 1870.^[W.E.B. DuBois, Black Reconstruction (Millwood, NY: Kraus-Thomson Organization Ltd), 1976, 531-532.]  They campaigned against the state’s 1868 constitution, which included a Declaration of Rights which affirmed the equality of all men, the holding of free elections, and the right to a public education.^[NC Const. of 1868, art. 1, §1, §10, §27.]  As the editor of The North State wrote, “…the Democrats, finding that they could not deprive the colored people the right to vote by violence…determined to accomplish this object, so dear to their hearts, by law.”^[“Report and Testimony,” 146.]  
+
+
+
+```{r migration1870, fig.cap="African American Migration from North Carolina, 1870. <br> Using 1870 census data, This interactive leaflet map illustrates where African Americans from North Carolina <br> are choosing to live in the years post-Emancipation. Data is displayed both as numbers of actual people, and as a percentage of the total population of African Americans born in North Carolina. North Carolina and Alaska Territory are excluded from this map."}
+states_1870 <- us_states("1870-12-31")
+ncmigration_1870 <- read_csv("data/blkncmigration1870.csv") 
+ncmigration_1870 %>% 
+  mutate(state_name = str_remove(state_name, " Territory"),
+         (totncblack_percentage = ncmigper*100))
+  
+ncmigration_1870_gi <- states_1870 %>% 
+  left_join(ncmigration_1870, by = "state_name") %>% 
+  filter(state_name != "Alaska",
+         state_name != "North Carolina")
+
+ncmig1870_colors <- colorNumeric(palette = "YlOrRd",
+                             domain = c(0, max(ncmigration_1870_gi$ncnatives, na.rm = TRUE)))
+
+leaflet(ncmigration_1870_gi) %>% 
+  addPolygons(fillColor = ~ncmig1870_colors(ncnatives), 
+              fillOpacity = 1,
+              color = "black",
+              weight = 1,
+              popup = ~str_c(state_name,"<br>",
+                             "Black NC Natives: ", prettyNum(ncnatives, big.mark = ","), "<br>",
+                             "% of all Black NC Natives: ", prettyNum(ncmigper ),
+                               "%")) %>% 
+  addLegend(position = "bottomleft", 
+            pal = ncmig1870_colors, values = ~ncnatives,
+            title = "1870:<br>Black Migration from <br>North Carolina and <br>Percentage of<br>Total Black<br> NC Nativity", 
+            opacity = 1 )
+```
+
+
+
+The state’s 1876 constitution legalized racially segregated schools, criminalized interracial marriages, instituted a one-year residency requirement for voters, and gave the legislature the authority to abolish town and county governments.^[Powell, 405; Dillard S. Gardiner, “The Continuous Revision of Our State Constitution,” North Carolina Law Review, Vol. 36, No. 3 (1958), 300.]  The last two amendments were designed to erode African American political participation: many African Americans worked as agricultural laborers and moved from county to county for work. The one-year residency requirement would effectively block African Americans from voting in elections. The General Assembly’s ability to abolish town and county governments prevented African Americans from holding political office, especially in eastern counties where they were the majority.^[Frenise Logan, The Negro in North Carolina, 1876-1894 (Chapel Hill: University of North Carolina Press), 1964, 51.]   The years following Reconstruction weren’t necessarily marked by increased racial violence; however, the editor of The North State reminded its readers that the system of governance as designed by the Conservatives “…is a far more formidable engine of oppression than any open violence, because its work is done under the forms of law.”^[“Report and Testimony,” 147.] 
+
+Facing political and social oppression following the end of Reconstruction, African American North Carolinians sought to establish their own colonies; some even directly petitioned Governor Vance in 1877. Vance denied their request, declaring that he knew there was no plan or intention to deny African Americans their rights.^[Logan, 118-119.]  African American migration out of North Carolina began between 1877 and 1880. Meetings of “representative colored men” were held in Raleigh, Nashville, and New Orleans to investigate the causes of African American migration: they each cited economic exploitation, political intimidation, and legal injustice as the major push factors, and advocated migration “to those States and Territories where they can enjoy all the rights which are guaranteed by the laws and Constitution of the United States…”^[Thornbrough, 213-214; Logan 119-120.]   In 1879, newspaper reports begin to trace African American migration to Indiana.^[August Meier, Negro Thought in America, 1880-1915. (Ann Arbor: University of Michigan Press), 1964, 60; Logan, 123.]  One paper in particular, the Indianapolis Daily Sentinel, regularly published theories that African American migration into Indiana was part of a Republican conspiracy in order to ensure victory in the upcoming 1880 elections.^[Thornbrough, 215.] 
+
+```{r migration1880, fig.cap="African American Migration from North Carolina, 1880. <br> Using 1880 census data, This interactive leaflet map illustrates where African Americans from North Carolina <br> are choosing to live in the years post-Redemption. As with the 1870 map, data is displayed both as numbers of actual people, and as a percentage of the total population of African Americans born in North Carolina. North Carolina and Alaska Territory are excluded from this map."}
+states_1880 <- us_states("1880-12-31")
+ncmigration_1880 <- read_csv("data/blkncmigration1880.csv") 
+ncmigration_1880 %>% 
+  mutate(state_name = str_remove(state_name, " Territory"),
+         (totncblack_percentage = ncmigper*100))
+
+ncmigration_1880_gi <- states_1880 %>% 
+  left_join(ncmigration_1880, by = "state_name") %>% 
+  filter(state_name != "Alaska",
+         state_name != "North Carolina")
+
+ncmig1880_colors <- colorNumeric(palette = "YlOrBr",
+                                 domain = c(0, max(ncmigration_1880_gi$ncnatives, na.rm = TRUE)))
+
+leaflet(ncmigration_1880_gi) %>% 
+  addPolygons(fillColor = ~ncmig1880_colors(ncnatives), 
+              fillOpacity = 1,
+              color = "black",
+              weight = 1,
+              popup = ~str_c(state_name,"<br>",
+                             "Black NC Natives: ", prettyNum(ncnatives, big.mark = ","), "<br>",
+                             "% of all Black NC Natives: ", prettyNum(ncmigper ),
+                             "%")) %>% 
+  addLegend(position = "bottomleft", 
+            pal = ncmig1880_colors, values = ~ncnatives,
+            title = "1880:<br>Black Migration from <br>North Carolina and <br>Percentage of<br>Total Black<br> NC Nativity", 
+            opacity = 1 )
+```
+
+
+
+Data analysis and mapping in R do not confirm neither the concern of the representative colored men, Democratic politicians, nor their newspapers. In both 1870 and 1880, the overwhelming majority of African Americans remained in North Carolina. African Americans who chose to leave the state after Emancipation also did not move en masse to Indiana, as many sources reported. The 1880 Census indicated that “the movement of blacks in the northern and western states has apparently been of little comparative account.” Even more specifically, it observed that “Indiana has gained but slightly in proportion of negroes.”^[“Statistics of the Population of the United States at the Tenth Census, June 1, 1880” (Department of the Interior, Census Office, November 1881), 38, https://www2.census.gov/library/publications/decennial/1880/vol-01-population/1880_v1-03.pdf?#.]   
+
+```{r migstates, results= "hide", fig.width=8, fig.height=4, fig.cap="Points of Settlement for African American Migration from North Carolina, 1870 & 1880. <br> Using 1870 and 1880 census data, This chart points out the primary points of settlement for African Americans migrating from North Carolina. <br> North Carolina is excluded from this chart, as the majority of African Americans born in North Carolina continue to reside there."}
+blackncmigration1870 <- read_csv("data/blkncmigration1870.csv")
+topten1870 <- blackncmigration1870 %>% 
+  select(year, state_name, totblkpop, ncnatives) %>% 
+  arrange(desc(ncnatives)) %>% 
+  top_n(10, ncnatives)
+
+blackncmigration1880 <- read_csv("data/blkncmigration1880.csv")
+topten1880 <- blackncmigration1880 %>% 
+  select(year, state_name, totblkpop, ncnatives) %>% 
+  arrange(desc(ncnatives)) %>% 
+  top_n(10, ncnatives)
+
+migration <- bind_rows(blackncmigration1870, blackncmigration1880)   
+
+migration %>% 
+  filter(state_name != "North Carolina") %>% 
+  mutate(year = fct_rev(as.factor(year))) %>% 
+  mutate(state_name = if_else(ncnatives < 2000 & state_name != "Indiana", "Other", state_name)) %>% 
+  group_by(state_name, year) %>% 
+  summarize(ncnatives = sum(ncnatives)) %>% 
+ggplot(aes(x=fct_reorder(state_name, ncnatives), y=ncnatives, color = year, fill = year)) + 
+  geom_bar(stat="identity", color= "#2B101E", position = position_dodge()) + 
+  labs(title="States of Residence for African Americans Born in North Carolina, 1870 & 1880")+
+  coord_flip() +
+  scale_fill_manual(values = c("#2B101E", "#845157")) +
+  theme(legend.position = "bottom") +
+  labs(x = NULL,
+       y = "African American residents born in North Carolina")
+```
+
+
+By and large, African Americans chose to settle in other Southern states such as Alabama, Mississippi, and Tennessee. In 1880, the number of African Americans living in Indiana who were born in North Carolina was a quarter of the population of African Americans living in Alabama and Mississippi who were also born in North Carolina. Since we only have aggregate data available via the census, it is difficult to pinpoint the specific reasons for each migrant’s decision. While this study did not explore the pull factors that attracted African Americans to Alabama, Mississippi, and Tennessee, the question of the public and political opposition to this migration still remains.
+
+The theories (or conspiracies) published by the Indianapolis Daily Sentinel were integrated into the majority report of the Senate committee charged with investigating the causes of African American migration from the South: “this exodus of the colored people was purely political. They thought it would be well to remove a sufficient number of blacks from the South, where their votes could not be made to tell, into close States in the North, and thus turn the scale in favor of the Republican party.”^[“Report and Testimony,” 4.]  And at the New Orleans meeting considering the causes of African American migration, both P.B.S. Pinchback and Frederick Douglass urged fellow African Americans against leaving the South. How is it possible that both white Senate Democrats and leading African Americans (who are overwhelmingly Republican) oppose African American migration? It’s possible once we consider exactly who is leaving the South.
+
+The African Americans who chose to leave North Carolina and other Southern states in 1879 and 1880 were not elites. They were agricultural workers seeking new lives in new locales in a state and a country that was unable to recognize their agency to do so. State leaders’ opposition to African American migration was rooted in a social concept known as the North Carolina myth.^[Haley, Charles N. Hunter and Race Relations in North Carolina. (Chapel Hill: University of North Carolina Press), 1987, x.]  The myth held that North Carolina was a much better place for African Americans to live than the states of the Deep South; it operated on the inevitability and benefits of white paternalism. White leaders such as L.L. Polk, Thomas Jarvis, and Zebulon Vance who perpetuated the myth could both convince themselves that they were good people and use their good, kind paternalism as a tool of social control over African Americans. On the other hand, African American leaders such as the leaders of the NCIA and James O’Hara also benefitted from their perpetuation of the myth. Doing so reinforced their own perceived social status, as their “wealth and position depended upon the presence of a substantial Negro population.”^[Meier, 61.]  Additionally, their perpetuation of the myth assuaged “those whites who had the power to grant them favors or prestige.”^[Haley, xi.]  
+
+And yet, thousands of African Americans took a chance on a new life and migrated anyway.
+
